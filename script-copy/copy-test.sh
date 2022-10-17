@@ -7,11 +7,11 @@ pipeline{
    
    parameters{
     choice( choices: ["copy", "status-check"], description: "Select required action !", name: "REQUESTED_ACTION")
-    string(name: "GIT_BRANCH_TAG", defaultValue: "test", description: "hai..")
+    string(name: "GIT_BRANCH_TAG", defaultValue: "main", description: "hai..")
    
    }
    environment{
-    ZYLER_GIT_REPO = "git@github.com:greenjeeva/Greenjeeva-Prod.git"
+    ZYLER_GIT_REPO = "git@github.com:san1726/jenkins-github1.git"
     ZYLER_BRANCH = "${params.ZYLER_BRANCH_TAG}"
     REPO_CRED = "jenkins-id"
     REQUESTED_ACTION = "${params.REQUESTED_ACTION}"
@@ -53,7 +53,7 @@ stage ("copy files"){
                 sh '''
                 
                  
-                 cd jenkins-pipeline/script-copy;
+                 cd jenkins-github1/script-copy;
                  chmod +x copy-test.sh
                  ./copy-test.sh
 
